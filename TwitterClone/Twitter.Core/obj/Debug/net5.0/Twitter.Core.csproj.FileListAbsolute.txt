@@ -1,0 +1,15 @@
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\bin\Debug\net5.0\Twitter.Core.deps.json
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\bin\Debug\net5.0\Twitter.Core.runtimeconfig.json
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\bin\Debug\net5.0\Twitter.Core.runtimeconfig.dev.json
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\bin\Debug\net5.0\Twitter.Core.dll
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\bin\Debug\net5.0\ref\Twitter.Core.dll
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\bin\Debug\net5.0\Twitter.Core.pdb
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\obj\Debug\net5.0\Twitter.Core.csprojAssemblyReference.cache
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\obj\Debug\net5.0\Twitter.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\obj\Debug\net5.0\Twitter.Core.AssemblyInfoInputs.cache
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\obj\Debug\net5.0\Twitter.Core.AssemblyInfo.cs
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\obj\Debug\net5.0\Twitter.Core.csproj.CoreCompileInputs.cache
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\obj\Debug\net5.0\Twitter.Core.dll
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\obj\Debug\net5.0\ref\Twitter.Core.dll
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\obj\Debug\net5.0\Twitter.Core.pdb
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Core\obj\Debug\net5.0\Twitter.Core.genruntimeconfig.cache

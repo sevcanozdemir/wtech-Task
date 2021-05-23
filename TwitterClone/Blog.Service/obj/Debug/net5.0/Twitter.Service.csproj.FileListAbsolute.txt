@@ -1,0 +1,17 @@
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\obj\Debug\net5.0\Twitter.Service.csprojAssemblyReference.cache
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\obj\Debug\net5.0\Twitter.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\obj\Debug\net5.0\Twitter.Service.AssemblyInfoInputs.cache
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\obj\Debug\net5.0\Twitter.Service.AssemblyInfo.cs
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\obj\Debug\net5.0\Twitter.Service.csproj.CoreCompileInputs.cache
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\bin\Debug\net5.0\Twitter.Service.deps.json
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\bin\Debug\net5.0\Twitter.Service.dll
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\bin\Debug\net5.0\ref\Twitter.Service.dll
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\bin\Debug\net5.0\Twitter.Service.pdb
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\bin\Debug\net5.0\Twitter.Core.dll
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\bin\Debug\net5.0\Twitter.Model.dll
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\bin\Debug\net5.0\Twitter.Core.pdb
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\bin\Debug\net5.0\Twitter.Model.pdb
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\obj\Debug\net5.0\Twitter.Service.csproj.CopyComplete
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\obj\Debug\net5.0\Twitter.Service.dll
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\obj\Debug\net5.0\ref\Twitter.Service.dll
+C:\Users\sevca\wtech-Task\TwitterClone\Blog.Service\obj\Debug\net5.0\Twitter.Service.pdb

@@ -1,6 +1,8 @@
+using Blog.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Twitter.Core.Service;
+using Twitter.Model.Context;
+using Twitter.Service;
 
 namespace Twitter.Web
 {
@@ -24,6 +29,14 @@ namespace Twitter.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<DatabaseContext>(options =>
+           options.UseSqlServer(Configuration.GetConnectionString("twitter")));
+
+            services.AddScoped(typeof(ICoreService<>), typeof(BaseService<>));
+            services.AddScoped(typeof(IUserService<>), typeof(UserService<>));
+            services.AddScoped(typeof(ITweetService<>), typeof(TweetService<>));
+            services.AddScoped(typeof(IHashTagService<>), typeof(HashTagService<>));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
