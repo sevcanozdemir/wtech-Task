@@ -76,3 +76,5 @@ C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Web\bin\Debug\net5.0\Twitter.Serv
 C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Web\bin\Debug\net5.0\Twitter.Service.pdb
 C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Web\bin\Debug\net5.0\Twitter.Model.pdb
 C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Web\bin\Debug\net5.0\Twitter.Core.pdb
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Web\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\sevca\wtech-Task\TwitterClone\Twitter.Web\obj\Debug\net5.0\Razor\Views\Account\SignUp.cshtml.g.cs
