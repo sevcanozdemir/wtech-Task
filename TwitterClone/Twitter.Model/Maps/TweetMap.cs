@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Twitter.Core.Entity.Enums;
 using Twitter.Core.Map;
 using Twitter.Model.Entities;
 
@@ -21,6 +22,7 @@ namespace Twitter.Model.Maps
             builder.Property(x => x.MediaUrl).HasMaxLength(1000).IsRequired(false);
             builder.Property(x => x.LikeCount).IsRequired(true);
             builder.Property(x => x.RetweetCount).IsRequired(true);
+            builder.Property(x => x.Type).IsRequired(true).HasDefaultValue(TweetType.Tweet);
             builder.Property(x => x.CommentCount).IsRequired(true);
             builder.Property(x => x.TagId).IsRequired(false);
             base.Configure(builder);

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Twitter.Core.Entity;
+using Twitter.Core.Entity.Enums;
 
 namespace Twitter.Model.Entities
 {
@@ -21,6 +22,7 @@ namespace Twitter.Model.Entities
         [NotMapped]
         public Guid? Parent { get; set; }
         public int LikeCount { get; set; }
+        public TweetType Type { get; set; }
         public int RetweetCount { get; set; }
         public int CommentCount { get; set; }
 
