@@ -23,6 +23,8 @@ namespace Twitter.Model.Entities
         public Guid? Parent { get; set; }
         public int LikeCount { get; set; }
         public TweetType Type { get; set; }
+        public Guid? RetweetId { get; set; }
+        public Tweet Retweet { get; set; }
         public int RetweetCount { get; set; }
         public int CommentCount { get; set; }
 

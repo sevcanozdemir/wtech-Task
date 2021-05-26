@@ -1,0 +1,246 @@
+﻿@model Tuple<Twitter.Model.Entities.User, Twitter.Model.Entities.Tweet>
+@{
+    Layout = null;
+}
+
+@if (Model.Item2.RetweetId == null)
+{
+    <div class="container">
+        <div class=" mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-start w-100">
+                        @if (Model.Item1.ProfileImage != null)
+                        {
+                            <img class="rounded-circle shadow-1-strong mr-3"
+                                 src="@Url.Content(Model.Item1.ProfileImage)"
+                                 alt="avatar"
+                                 width="45"
+                                 height="45" />
+                        }
+                        else
+                        {
+                            <img class="rounded-circle shadow-1-strong mr-3"
+                                 src="https://st.depositphotos.com/1779253/5140/v/600/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg"
+                                 alt="avatar"
+                                 width="45"
+                                 height="45" />
+                        }
+
+                        <div>
+                            <p>
+                                <a href="/@Model.Item1.Username"><b>@Model.Item1.Fullname</b></a><br />
+                                <span style="color:lightgray">
+                                    @Html.Raw("@")@Model.Item1.Username @Model.Item2.CreatedDate
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        @if (Model.Item2.Type == Twitter.Core.Entity.Enums.TweetType.Comment)
+                        {
+                            <p class="mt-2">
+                                <b>
+                                    Replying to this
+                                    <a href="/Tweet/@Model.Item2.Belong">
+                                        <span class="blue">tweet</span>
+                                    </a>
+                                </b>
+                            </p>
+
+                        }
+                        <p class="mt-2">@Model.Item2.Text</p>
+                    </div>
+                    @if (Model.Item2.MediaUrl != null)
+                    {
+                        <img src="@Url.Content(Model.Item2.MediaUrl)" alt="" class="card-img-bottom mb-2">
+
+                    }
+                    <a href="/Tweet/@(Model.Item2.ID.ToString())" class="btn btn-outline-success btn-sm">
+                        <span> @Model.Item2.Comments.Count</span>
+                        <i class="far fa-comment"></i>
+                    </a>
+                    <a href="/Retweet/@(Model.Item2.ID.ToString())" class="btn btn-outline-success btn-sm">
+                        <span> @Model.Item2.RetweetCount</span>
+                        <i class="fas fa-retweet"></i>
+                    </a>
+
+                    @if (Model.Item2.Likes.Any(x => x.UserId.ToString() == (User.FindFirst("ID").Value)))
+                    {
+                        <button class="btn btn-outline-danger btn-sm" onclick="UnlikeTweet('@(User.FindFirst("ID").Value.ToString())','@Model.Item2.ID.ToString()')">
+                            <span id="likeCount@(Model.Item2.ID.ToString())"> @Model.Item2.Likes.Count</span>
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-outline-danger btn-sm" onclick="LikeTweet('@(User.FindFirst("ID").Value.ToString())','@Model.Item2.ID.ToString()')">
+                            <span id="likeCount@(Model.Item2.ID.ToString())"> @Model.Item2.Likes.Count</span>
+                            <i class="far fa-heart"></i>
+                        </button>
+                    }
+
+
+                    @if ((User.FindFirst("ID")).Value == Model.Item1.ID.ToString())
+                    {
+                        <a asp-controller="Profile" asp-action="DeleteTweet" asp-route-id="@Model.Item2.ID" class="btn btn-outline-danger btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                            </svg>
+
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="container">
+        <div class=" mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-start w-100">
+                        @if (Model.Item1.ProfileImage != null)
+                        {
+                            <img class="rounded-circle shadow-1-strong mr-3"
+                                 src="@Url.Content(Model.Item1.ProfileImage)"
+                                 alt="avatar"
+                                 width="45"
+                                 height="45" />
+                        }
+                        else
+                        {
+                            <img class="rounded-circle shadow-1-strong mr-3"
+                                 src="https://st.depositphotos.com/1779253/5140/v/600/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg"
+                                 alt="avatar"
+                                 width="45"
+                                 height="45" />
+                        }
+
+                        <div>
+                            <p>
+                                <a href="/@Model.Item1.Username"><b>@Model.Item1.Fullname</b></a><br />
+                                <span style="color:lightgray">
+                                    @Html.Raw("@")@Model.Item1.Username @Model.Item2.CreatedDate
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        @if (Model.Item2.Type == Twitter.Core.Entity.Enums.TweetType.Comment)
+                        {
+                            <p class="mt-2">
+                                <b>
+                                    Replying to this
+                                    <a href="/Tweet/@Model.Item2.Belong">
+                                        <span class="blue">tweet</span>
+                                    </a>
+                                </b>
+                            </p>
+
+                        }
+                        <p class="mt-2">@Model.Item2.Text</p>
+
+                        <div class="mx-auto my-3">
+                            <div>
+                                <div class="container">
+                                    <div class=" mb-2">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex flex-start w-75">
+                                                    @if (Model.Item2.Retweet.User.ProfileImage != null)
+                                                    {
+                                                        <img class="rounded-circle shadow-1-strong mr-3"
+                                                             src="@Url.Content(Model.Item2.Retweet.User.ProfileImage)"
+                                                             alt="avatar"
+                                                             width="45"
+                                                             height="45" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <img class="rounded-circle shadow-1-strong mr-3"
+                                                             src="https://st.depositphotos.com/1779253/5140/v/600/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg"
+                                                             alt="avatar"
+                                                             width="45"
+                                                             height="45" />
+                                                    }
+
+                                                    <div>
+                                                        <p>
+                                                            <a href="/@Model.Item2.Retweet.User.Username"><b>@Model.Item2.Retweet.User.Fullname</b></a><br />
+                                                            <span style="color:lightgray">
+                                                                @Html.Raw("@")@Model.Item2.Retweet.User.Username @Model.Item2.Retweet.CreatedDate
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <a href="/Tweet/@(Model.Item2.Retweet.ID)">Go to tweet </a>
+                                                    <p class="mt-2">@Model.Item2.Retweet.Text</p>
+                                                </div>
+                                                @if (Model.Item2.Retweet.MediaUrl != null)
+                                                {
+                                                    <img src="@Url.Content(Model.Item2.Retweet.MediaUrl)" alt="" class="card-img-bottom mb-2">
+
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    @if (Model.Item2.MediaUrl != null)
+                    {
+                        <img src="@Url.Content(Model.Item2.MediaUrl)" alt="" class="card-img-bottom mb-2">
+
+                    }
+                    <a href="/Tweet/@(Model.Item2.ID.ToString())" class="btn btn-outline-success btn-sm">
+                        <span> @Model.Item2.Comments.Count</span>
+                        <i class="far fa-comment"></i>
+                    </a>
+                    <a href="/Retweet/@(Model.Item2.ID.ToString())" class="btn btn-outline-success btn-sm">
+                        <span> @Model.Item2.RetweetCount</span>
+                        <i class="fas fa-retweet"></i>
+                    </a>
+
+                    @if (Model.Item2.Likes.Any(x => x.UserId.ToString() == (User.FindFirst("ID").Value)))
+                    {
+                        <button class="btn btn-outline-danger btn-sm" onclick="UnlikeTweet('@(User.FindFirst("ID").Value.ToString())','@Model.Item2.ID.ToString()')">
+                            <span id="likeCount@(Model.Item2.ID.ToString())"> @Model.Item2.Likes.Count</span>
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-outline-danger btn-sm" onclick="LikeTweet('@(User.FindFirst("ID").Value.ToString())','@Model.Item2.ID.ToString()')">
+                            <span id="likeCount@(Model.Item2.ID.ToString())"> @Model.Item2.Likes.Count</span>
+                            <i class="far fa-heart"></i>
+                        </button>
+                    }
+
+
+                    @if ((User.FindFirst("ID")).Value == Model.Item1.ID.ToString())
+                    {
+                        <a asp-controller="Profile" asp-action="DeleteTweet" asp-route-id="@Model.Item2.ID" class="btn btn-outline-danger btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                            </svg>
+
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -42,6 +42,10 @@ namespace Twitter.Web.Controllers
         {
             return View();
         }
+        public IActionResult NameNotFound()
+        {
+            return View();
+        }
 
 
 
