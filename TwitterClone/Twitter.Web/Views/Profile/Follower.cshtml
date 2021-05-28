@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Twitter.Model.Entities.User>
+@{
+    ViewData["Title"] = "Followers";
+}
+@foreach (var user in Model)
+{
+    <div class=" mb-2 col-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-start w-100">
+                    <div>
+                        @if (user.ProfileImage != null)
+                        {
+                            <img class="rounded-circle shadow-1-strong mr-3"
+                                 src="@Url.Content(user.ProfileImage)"
+                                 alt="avatar"
+                                 width="45"
+                                 height="45" />
+                        }
+                        else
+                        {
+                            <img class="rounded-circle shadow-1-strong mr-3"
+                                 src="https://st.depositphotos.com/1779253/5140/v/600/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg"
+                                 alt="avatar"
+                                 width="45"
+                                 height="45" />
+                        }
+                    </div>
+                    <div>
+                        <p>
+                            <a href="/@user.Username"><b>@user.Fullname</b></a><br />
+                            <span style="color:lightgray">
+                                @Html.Raw("@")@user.Username
+                            </span>
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+}

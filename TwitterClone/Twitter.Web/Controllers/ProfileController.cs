@@ -18,12 +18,12 @@ namespace Twitter.Web.Controllers
 
 
         private readonly ICoreService<User> _userContext;
-        private readonly ITweetService<Tweet> _tweetContext;
+        private readonly ITweetService<TweetContoller> _tweetContext;
         private readonly ICoreService<Follow> _followContext;
         private IWebHostEnvironment _env;
 
         public ProfileController(ICoreService<User> usercontext, ICoreService<Follow> followContext,
-            ITweetService<Tweet> tweetContext, IWebHostEnvironment env)
+            ITweetService<TweetContoller> tweetContext, IWebHostEnvironment env)
         {
             _userContext = usercontext;
             _tweetContext = tweetContext;

@@ -16,12 +16,12 @@ namespace Twitter.Web.Controllers
     {  
         private readonly ICoreService<User> _userContext;
         private readonly ICoreService<Follow> _followContext;
-        private readonly ITweetService<Tweet> _tweetContext;
+        private readonly ITweetService<TweetContoller> _tweetContext;
         private readonly ICoreService<Like> _likeContext;
         private readonly ICoreService<HashTag> _hashTagContext;
         private IWebHostEnvironment _environment;
         public HomeController( ICoreService<User> context,
-            ICoreService<Follow> followContext, ITweetService<Tweet> tweetContext, IWebHostEnvironment environment,
+            ICoreService<Follow> followContext, ITweetService<TweetContoller> tweetContext, IWebHostEnvironment environment,
             ICoreService<Like> likeContext, ICoreService<HashTag> _hashTagContext)
         {
            
